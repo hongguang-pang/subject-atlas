@@ -40,5 +40,37 @@
   <div id="toast" role="status" aria-live="polite"></div>
 </div>
 <script src="app.js?v=130"></script>
+<script>
+/* 旧链接提示：检测到旧版 sharecode 参数时引导到新地址 */
+(function () {
+  if (!/[?&]sharecode=/i.test(location.search) && !/workbuddy\.host/i.test(document.referrer || '')) return;
+  if (localStorage.getItem('atlas.legacyTip') === 'off') return;
+  var NEW_URL = 'https://hongguang-pang.github.io/subject-atlas/';
+  var d = document.createElement('div');
+  d.id = 'lgTip';
+  d.innerHTML = '<b>📌 你用的是旧链接</b>' +
+    '<span>新地址已固定，旧参数可以丢掉。</span>' +
+    '<div class="lg-r"><button id="lgGo">改用新地址</button><button id="lgX">以后再说</button></div>';
+  var css = document.createElement('style');
+  css.textContent = '#lgTip{position:fixed;left:10px;right:10px;bottom:14px;z-index:9999;' +
+    'background:linear-gradient(135deg,#4338ca,#6366f1);color:#fff;border-radius:14px;' +
+    'padding:12px 14px;box-shadow:0 10px 26px rgba(50,40,140,.32);font-size:13px;line-height:1.6;' +
+    'max-width:420px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}' +
+    '#lgTip b{display:block;font-size:14px;margin-bottom:2px}' +
+    '#lgTip span{opacity:.9;font-size:12.5px}' +
+    '#lgTip .lg-r{display:flex;gap:8px;margin-top:10px}' +
+    '#lgTip button{font-family:inherit;font-size:13px;font-weight:700;border-radius:9px;' +
+    'padding:8px 12px;cursor:pointer;border:0}' +
+    '#lgTip #lgGo{flex:1;background:#fff;color:#4338ca}' +
+    '#lgTip #lgX{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}';
+  document.head.appendChild(css);
+  document.body.appendChild(d);
+  d.querySelector('#lgGo').onclick = function () { location.href = NEW_URL; };
+  d.querySelector('#lgX').onclick = function () {
+    localStorage.setItem('atlas.legacyTip', 'off');
+    d.remove();
+  };
+})();
+</script>
 </body>
 </html>
