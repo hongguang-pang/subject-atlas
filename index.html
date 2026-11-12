@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<title>学科图谱 · 学习助手</title>
+<meta name="description" content="基于 cn-math-taxonomy 的中小学数学知识点图谱与自适应诊断学习工具">
+<meta name="theme-color" content="#4f46e5">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="数学图谱">
+<link rel="stylesheet" href="app.css?v=130">
+</head>
+<body>
+<div id="app">
+  <header id="topbar"></header>
+  <main id="view" tabindex="-1"></main>
+  <nav id="tabbar" aria-label="主导航">
+    <a href="#/home" data-tab="home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z"/></svg>
+      <span>学习</span>
+    </a>
+    <a href="#/browse" data-tab="browse">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.6"/><circle cx="17" cy="7" r="2.6"/><circle cx="12" cy="17" r="2.6"/><path d="M8.5 8.8 11 14.5M15.5 8.8 13 14.5M9.6 7h4.8"/></svg>
+      <span>图谱</span>
+    </a>
+    <a href="#/diagnose" data-tab="diagnose">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19V9m7 10V5m7 14v-7"/><circle cx="5" cy="6" r="1.6"/><circle cx="12" cy="3.5" r="1.6"/><circle cx="19" cy="9" r="1.6"/></svg>
+      <span>诊断</span>
+    </a>
+    <a href="#/me" data-tab="me">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c0-3.9 3.3-6.4 7.5-6.4s7.5 2.5 7.5 6.4"/></svg>
+      <span>我的</span>
+    </a>
+  </nav>
+  <div id="toast" role="status" aria-live="polite"></div>
+</div>
+<script src="app.js?v=130"></script>
+</body>
+</html>
