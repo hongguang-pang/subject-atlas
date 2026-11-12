@@ -1,5 +1,5 @@
 /* 数学图谱 · 离线缓存 Service Worker */
-const VERSION = 'cnm-v1.3.0';
+const VERSION = 'cnm-v1.3.1';
 const SHELL = [
   './',
   './index.html',
